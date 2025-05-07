@@ -88,7 +88,33 @@
 
 \section{Numbers}
 
-\textsc{To-Do.}
+\begin{description}[leftmargin=2.5cm, style=nextline]
+  \item[\gls{natural_numbers_definition}] \texttt{N ::= 0 | S(N) }
+  
+  \item[\gls{natural_numbers_constructors}]
+  \begin{tabular}{rcl}
+    \texttt{N}&\texttt{:}&\texttt{T}\\
+    \texttt{0}&\texttt{:}&\texttt{N}\\
+    \texttt{S}&\texttt{:}&\texttt{N $\rightarrow$ N}
+  \end{tabular}
+
+  \item[\gls{natural_numbers_addition}]
+  \begin{tabular}{rcl}
+    \texttt{+}&\texttt{:}&\texttt{N $\rightarrow$ N $\rightarrow$ N}\\
+    \texttt{0 + }$y$&\texttt{:=}&$y$\\
+    \texttt{S$x$ + $y$}&\texttt{:=}&\texttt{S($x+y$)}
+  \end{tabular}
+
+  \item[\gls{natural_numbers_subtraction}]
+  \begin{tabular}{rcl}
+    \texttt{-}&\texttt{:}&\texttt{N $\rightarrow$ N $\rightarrow$ N}\\
+    \texttt{0 - }$y$&\texttt{:=}&\texttt{0}\\
+    \texttt{S$x$ - 0}&\texttt{:=}&\texttt{S($x$)}\\
+    \texttt{S$x$ - S$y$}&\texttt{:=}&$x-y$
+  \end{tabular}
+\end{description}
+
+\textsc{To be continued...}
 
 \clearpage
 
