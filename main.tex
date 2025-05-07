@@ -1,0 +1,99 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage[style=index]{glossaries}
+\usepackage{enumitem}
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}  % Font settings for the chapter title
+  {Chapter \thechapter:}         % Format for the "Chapter X" part
+  {0.5em}                         % Space between the "Chapter X" and the title
+  {}                             % Additional formatting for the title (if any)
+
+
+\makeglossaries
+\input{glossary.tex}
+
+\title{
+  \textbf{\LARGE Definition Collection} \\
+  \vspace{1em}
+  \small for the lecture\\
+  \large Introduction to Computational Logic \\
+  \vspace{1em}
+  \small based on the book\\
+  \large Modeling and Proving in \\
+  \large Computational Type Theory\\
+  \large Using the Rocq Prover\\
+  \vspace{1em}
+  \small both by\\
+  \large Prof.\ Dr.\ Gert Smolka
+}
+\author{Francesco Georg Schmitt \\
+\normalsize Saarland University}
+\date{Summer Semester 2025}
+
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+\pagenumbering{arabic}
+
+\chapter{Getting Started}
+
+\section{Booleans}
+
+\begin{description}[leftmargin=2.5cm, style=nextline]
+  \item[\gls{boolean_definition}] \texttt{B ::= true | false}
+  
+  \item[\gls{boolean_constructors}]
+  \begin{tabular}{rcl}
+    \texttt{B}&\texttt{:}&\texttt{T}\\
+    \texttt{true}&\texttt{:}&\texttt{B}\\
+    \texttt{false}&\texttt{:}&\texttt{B}
+  \end{tabular}
+  
+  \item[\gls{boolean_negation}]
+  \begin{tabular}{rcl}
+    \texttt{!}&\texttt{:}&\texttt{B $\rightarrow$ B}\\
+    \texttt{!true}&\texttt{:=}&\texttt{false}\\
+    \texttt{!false}&\texttt{:=}&\texttt{true}
+  \end{tabular}
+
+  \item[\gls{double_negation}]$\neg \neg x = x$
+
+  \item[\gls{boolean_conjunction}]
+  \begin{tabular}{rcl}
+    \texttt{\&} &\texttt{:}&\texttt{B $\rightarrow$ B $\rightarrow$ B}\\
+    \texttt{true \& }$y$&\texttt{:=}&$y$\\
+    \texttt{false \& }$y$&\texttt{:=}&\texttt{false}
+  \end{tabular}
+  
+  \item[\gls{boolean_disjunction}]
+  \begin{tabular}{rcl}
+    \texttt{|} &\texttt{:}&\texttt{B $\rightarrow$ B $\rightarrow$ B}\\
+    \texttt{true | }$y$&\texttt{:=}&\texttt{true}\\
+    \texttt{false | }$y$&\texttt{:=}&$y$
+  \end{tabular}
+\end{description}
+
+\section{Numbers}
+
+\textsc{To-Do.}
+
+\clearpage
+
+\appendix 
+\printglossary[title=Index, toctitle=Index]
+\addcontentsline{toc}{chapter}{Index}
+
+\end{document}
