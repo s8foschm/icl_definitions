@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage[colorlinks=true, linkcolor=blue]{hyperref}
 \usepackage[style=index]{glossaries}
 \usepackage{enumitem}
@@ -57,7 +59,7 @@
   
   \item[\gls{boolean_constructors}]
   \begin{tabular}{rcl}
-    \texttt{B}&\texttt{:}&\texttt{T}\\
+    \texttt{B}&\texttt{:}&$\mathbb{T}$\\
     \texttt{true}&\texttt{:}&\texttt{B}\\
     \texttt{false}&\texttt{:}&\texttt{B}
   \end{tabular}
@@ -93,7 +95,7 @@
   
   \item[\gls{natural_numbers_constructors}]
   \begin{tabular}{rcl}
-    \texttt{N}&\texttt{:}&\texttt{T}\\
+    \texttt{N}&\texttt{:}&$\mathbb{T}$\\
     \texttt{0}&\texttt{:}&\texttt{N}\\
     \texttt{S}&\texttt{:}&\texttt{N $\rightarrow$ N}
   \end{tabular}
@@ -112,9 +114,97 @@
     \texttt{S$x$ - 0}&\texttt{:=}&\texttt{S($x$)}\\
     \texttt{S$x$ - S$y$}&\texttt{:=}&$x-y$
   \end{tabular}
+
+  \item[\gls{natural_numbers_multiplication}]
+  \begin{tabular}{rcl}
+    $\cdot$&\texttt{:}&\texttt{N $\rightarrow$ N $\rightarrow$ N}\\
+    \texttt{0 $\cdot$ y}&\texttt{:=}&\texttt{0}\\
+    \texttt{S$x$ $\cdot$ y}&\texttt{:=}&$y+x\cdot y$
+  \end{tabular}
+
+  \item[\gls{natural_numbers_exponentiation}]
+  \begin{tabular}{rcl}
+    $\char`^$&\texttt{:}&\texttt{N $\rightarrow$ N $\rightarrow$ N}\\
+    \texttt{$x^{0}$}&\texttt{:=}&$1$\\
+    $x^{S n}$&\texttt{:=}&$x \cdot x^{n}$
+  \end{tabular}
+
 \end{description}
 
-\textsc{To be continued...}
+\section{Notational Conventions}
+
+\emph{Nothing to see here\ldots}
+
+\section{Structural Induction}
+
+\section{Quantified Inductive Hypotheses}
+
+\section{Preview of Proof Rules}
+
+\section{Procedural Specifications}
+
+\section{Pairs and Polymorphic Functions}
+
+\begin{description}[leftmargin=2.5cm, style=nextline]
+  \item[\gls{pairs_definition}] \texttt{Pair(X:$\mathbb{T}$,Y:$\mathbb{T}$) ::= pair(X,Y)}
+  \item[\gls{pairs_constructors}]
+  \begin{tabular}{rcl}
+    \texttt{Pair}&\texttt{:}&\texttt{$\mathbb{T}$ $\rightarrow$ $\mathbb{T}$ $\rightarrow$ $\mathbb{T}$}\\
+    \texttt{pair}&\texttt{:}&$\forall X Y. X \rightarrow Y \rightarrow$\texttt { Pair $X$ $Y$}
+  \end{tabular}
+  \item[\gls{pairs_swap}]
+  \begin{tabular}{rcl}
+    \texttt{swap}&\texttt{:}&$\forall X Y. X \times Y \rightarrow X \times Y$\\
+    \texttt{swap $X$ $Y$ (pair $x$ $y$)}&\texttt{:=}&\texttt{pair $Y$ $X$ $y$ $x$}
+  \end{tabular}
+\end{description}
+
+\section{Argument Inference and Implicit Arguments}
+
+\section{Iteration}
+
+\begin{description}[leftmargin=2.5cm, style=nextline]
+  \item[\gls{iter}]
+  \texttt{iter: }$\forall X.  (X \rightarrow X) \rightarrow N \rightarrow X \rightarrow X$\\
+  \begin{tabular}{rcl}
+    \texttt{iter X $f$ $0$ $x$}&\texttt{:=}&$x$\\
+    \texttt{iter X $f$ $(S n)$ $x$}&\texttt{:=}&$f$(\texttt{iter X $f$ $n$ $x$})\\
+  \end{tabular}
+\end{description}
+
+\section{Ackermann Function}
+
+\section{Unfolding Functions}
+
+\section{Concluding Remarks}
+
+\chapter{Basic Computational Type Theory}
+
+\section{Simply Typed Terms}
+
+\section{Dependently Typed Terms}
+
+\section{Inductive Type Definitions}
+
+\section{Inductive Function Definitions}
+
+\section{Reduction}
+
+\section{Plain Definitions}
+
+\section{Lambda Abstractions}
+
+\section{Let Expressions}
+
+\section{Matches}
+
+\section{Terms and Values}
+
+\section{Function Definitions in Rocq}
+
+\section{Summary}
+
+\section{Notes}
 
 \clearpage
 
